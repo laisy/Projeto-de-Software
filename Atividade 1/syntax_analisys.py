@@ -10,9 +10,9 @@ class SyntaxAnalisys:
                 self.subst_proprios = []
                 self.conjuncoes = []
         
-        def analyze(self, text):
+        def analyze(self):
                 nlp = spacy.load("pt_core_news_sm")
-                doc = nlp(text.read())
+                doc = nlp(self.text)
                 
                 self.verbos = [token.lemma_ for token in doc if token.pos_ == "VERB"]
                 self.verbos_aux = [token.lemma_ for token in doc if token.pos_ == "AUX"]
@@ -21,5 +21,4 @@ class SyntaxAnalisys:
                 self.subst_proprios = [token.lemma_ for token in doc if token.pos_ == "PROPN"]
                 self.conjuncoes = [token.lemma_ for token in doc if token.pos_ == "CCONJ"]
 
-                for entity in doc.ents:
-                        print(entity.text, entity.label_)
+
