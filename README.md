@@ -8,6 +8,11 @@
 <br />
 -- $ pip install PyQt5
 <br />
-
+-- $  pip install BeautifulSoup4
+<br />
+-- ou
+<br />
+-- $  pip install -r requeriments.txt
+<br />
 ## Passos para rodar o projeto <br />
--- $ python3 main.py
+-- $  python3 interface.py  
