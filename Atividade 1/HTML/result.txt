@@ -1,0 +1,6 @@
+Verbos: ['haver', 'goste', 'querer', 'ter']
+Verbos Auxiliares: ['ser']
+Pronomes: ['quem', 'que', 'o']
+Substantivos Comuns: ['dor', 'procure', 'dor']
+Substantivos Próprios: []
+Conjunções: ['e']

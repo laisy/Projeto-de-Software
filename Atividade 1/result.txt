@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 Verbos: ['haver', 'goste', 'querer', 'ter']
 Verbos Auxiliares: ['ser']
 Pronomes: ['quem', 'que', 'o']
 Substantivos Comuns: ['dor', 'procure', 'dor']
 Substantivos Próprios: []
 Conjunções: ['e']
+=======
+Verbos: ['haver', 'goste', 'querer', 'ter']
+Verbos Auxiliares: ['ser']
+Pronomes: ['quem', 'que', 'o']
+Substantivos Comuns: ['dor', 'procure', 'dor']
+Substantivos Próprios: []
+Conjunções: ['e']
+>>>>>>> b9ac9dc7e854fb5dfac53bfcb5be17ab783ae7c4
