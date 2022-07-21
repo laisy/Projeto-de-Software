@@ -34,19 +34,17 @@ class Web_Scraping:
 
   #Pega as informações no formato de texto da pagina
   def pegarInfo(texto):
-    info = texto.find('main', {'class':'mw-body'}).get_text()
-    return info
+      arrayText = [x.extract().getText() for x in texto.findAll('p')]
+      textoFinal = ""
+      for linha in arrayText:
+          textoFinal += linha
 
+      return textoFinal
 
-def main():
-  nome_arquivo = 'pegando_texto_do_wiki'
-  url ='https://pt.wikipedia.org/wiki/Naruto'
+  def processar (url):
 
-  web = Web_Scraping
-  pegando = web.fazerRequest(url)
-  info = web.pegarInfo(pegando)
-  web.salvarDados(info, nome_arquivo)
-  web.ler(f'{nome_arquivo}.txt')
+      web = Web_Scraping
+      pegando = web.fazerRequest(url)
+      info = web.pegarInfo(pegando)
 
-if __name__ == '__main__':
-  main()
+      return info
