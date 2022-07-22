@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QFileDialog, QMessageBox
 from syntax_analisys import *
 import os
 from classWebScraping import *
+import platform
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -168,8 +169,12 @@ class Ui_MainWindow(object):
             arq.write("Substantivos Próprios: " + str(a.subst_proprios) + "\n")
             arq.write("Conjunções: " + str(a.conjuncoes) + "\n")
             arq.close()
-            os.system("start result.txt")
-
+            if (platform.system() == 'Linux'):
+                os.system("more result.txt")
+             
+            if (platform.system() == 'Windows'):
+                os.system("start result.txt")
+            
         except Exception as e:
             self.alert(title="Erro", information="Não foi possível esta operação, por favor selecione um arquivo.",
                        detail=str(e))
@@ -207,7 +212,13 @@ class Ui_MainWindow(object):
 
             path = os.getcwd()
             os.chdir(os.getcwd()+"//HTML//")
-            os.system("start tables1.html")
+
+            if (platform.system() == 'Linux'):
+                os.system("xdg-open tables1.html")
+             
+            if (platform.system() == 'Windows'):
+                os.system("start tables1.html")
+                
             os.chdir(path)
 
         except Exception as e:
