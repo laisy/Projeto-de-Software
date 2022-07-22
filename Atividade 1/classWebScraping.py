@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import requests
 from bs4 import BeautifulSoup
+import string
+import re
+import unicodedata
 
 class Web_Scraping:
 
@@ -36,8 +39,19 @@ class Web_Scraping:
   def pegarInfo(texto):
       arrayText = [x.extract().getText() for x in texto.findAll('p')]
       textoFinal = ""
+
+      def isEnglish(s):
+          return s.translate(string.punctuation).isalnum()
+
       for linha in arrayText:
-          textoFinal += linha
+          for letra in linha:
+            if (letra != " "):
+                if (isEnglish(letra) or letra == "\n"):
+                    textoFinal += str(re.sub('[^a-zA-ZáéíóúÁÉÍÓÚâêîôÂÊÎÔãõÃÕçÇõ]',' ', letra))
+                else:
+                    textoFinal += " "
+            else:
+                textoFinal += " "
 
       return textoFinal
 
@@ -45,6 +59,6 @@ class Web_Scraping:
 
       web = Web_Scraping
       pegando = web.fazerRequest(url)
-      info = web.pegarInfo(pegando)
+      info = str(web.pegarInfo(pegando))
 
       return info
